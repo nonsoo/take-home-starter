@@ -1,6 +1,14 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 
-const formField: FC = () => {
+import { userInfo } from "../types/projectTypes";
+
+const FormField: FC = () => {
+  const [userInfo, setUserInfo] = useState<userInfo>({
+    fName: "",
+    lName: "",
+    phone: "",
+    email: "",
+  });
   const onSubmit = (e: any) => {
     e.preventDefault();
   };
@@ -17,26 +25,62 @@ const formField: FC = () => {
             <label htmlFor="fName" className="inputField__labelName">
               First Name
             </label>
-            <input type="text" className="userInfo__textBox" id="fName" />
+            <input
+              type="text"
+              className="userInfo__textBox"
+              id="fName"
+              value={userInfo.fName}
+              onChange={(e) =>
+                setUserInfo({ ...userInfo, fName: e.target.value })
+              }
+              required
+            />
           </div>
           <div className="inputField">
             <label htmlFor="lName" className="inputField__labelName">
               Last Name
             </label>
-            <input type="text" className="userInfo__textBox" id="lName" />
+            <input
+              type="text"
+              className="userInfo__textBox"
+              id="lName"
+              value={userInfo.lName}
+              onChange={(e) =>
+                setUserInfo({ ...userInfo, lName: e.target.value })
+              }
+              required
+            />
           </div>
         </div>
         <div className="inputField">
           <label htmlFor="phone" className="inputField__labelName">
             Phone number
           </label>
-          <input type="text" className="userInfo__textBox" id="phone" />
+          <input
+            type="text"
+            className="userInfo__textBox"
+            id="phone"
+            value={userInfo.phone}
+            onChange={(e) =>
+              setUserInfo({ ...userInfo, phone: e.target.value })
+            }
+            required
+          />
         </div>
         <div className="inputField">
           <label htmlFor="email" className="inputField__labelName">
             Email Address
           </label>
-          <input type="email" className="userInfo__textBox" id="email" />
+          <input
+            type="email"
+            className="userInfo__textBox"
+            id="email"
+            value={userInfo.email}
+            onChange={(e) =>
+              setUserInfo({ ...userInfo, email: e.target.value })
+            }
+            required
+          />
         </div>
         <button className="userInfo__submit">Continue</button>
       </form>
@@ -44,4 +88,4 @@ const formField: FC = () => {
   );
 };
 
-export default formField;
+export default FormField;
