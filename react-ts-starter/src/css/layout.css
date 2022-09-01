@@ -75,7 +75,6 @@ body {
 
 .mainContain {
   max-width: 700px;
-  margin: 0 auto;
 }
 
 @media screen and (min-width: 800px) {
@@ -83,7 +82,7 @@ body {
     --fs-prmy: 1rem;
     --fs-sec: 1.25rem;
     --fs-tri: 1.75rem;
-    --fs-four: 2rem;
+    --fs-four: 2.5rem;
   }
 
   .App {

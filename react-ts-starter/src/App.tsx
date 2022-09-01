@@ -3,10 +3,12 @@ import { FC } from "react";
 import "./css/layout.css";
 import "./css/home.css";
 import "./css/formComp.css";
+import "./css/reviewForm.css";
 
 import backGround from "./imgs/background.jpg";
 
 import FormField from "./components/Formfield";
+import ReviewSection from "./components/ReviewForm";
 
 const App: FC = () => {
   return (
@@ -20,7 +22,8 @@ const App: FC = () => {
         />
       </div>
       <div className="formContainer">
-        <FormField />
+        {/* <FormField /> */}
+        <ReviewSection />
       </div>
     </div>
   );

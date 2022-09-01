@@ -1,0 +1,6 @@
+.reviewSection__Title {
+  font-size: var(--fs-four);
+  font-weight: var(--fw-tri);
+
+  margin-bottom: 1.25em;
+}
