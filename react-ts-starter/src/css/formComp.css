@@ -1,0 +1,62 @@
+.FormSection__Title {
+  font-size: var(--fs-four);
+  font-weight: var(--fw-tri);
+
+  margin-bottom: 1.25em;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+}
+
+.inputField__labelName {
+  font-weight: var(--fw-tri);
+  cursor: pointer;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.25em;
+}
+
+.userInfo__textBox {
+  border: none;
+  border: 1px solid #b9b9b9;
+  padding: 0.55em;
+
+  border-radius: 5px;
+}
+
+.userInfo__Name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25em;
+}
+
+.userInfo__submit {
+  border: none;
+  padding: 0.75em 2.25em;
+  background-color: var(--col-acc-sec);
+  color: var(--col-text-sec);
+
+  border-radius: 10px;
+
+  font-weight: var(--fw-sec);
+
+  cursor: pointer;
+
+  width: 40%;
+
+  align-self: flex-end;
+}
+
+@media screen and (min-width: 800px) {
+  .userInfo__Name {
+    flex-direction: row;
+  }
+}

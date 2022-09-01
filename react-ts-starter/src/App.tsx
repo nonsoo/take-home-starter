@@ -1,9 +1,27 @@
-import "./layout.css";
+import { FC } from "react";
 
-const App = () => {
+import "./css/layout.css";
+import "./css/home.css";
+import "./css/formComp.css";
+
+import backGround from "./imgs/background.jpg";
+
+import FormField from "./components/Formfield";
+
+const App: FC = () => {
   return (
     <div className="App">
-      <p>hello there</p>
+      <div className="ImgContainer">
+        <p className="ImgContainer_Title">Matted</p>
+        <img
+          src={backGround}
+          alt="This is the background imgs"
+          className="imgBackground"
+        />
+      </div>
+      <div className="formContainer">
+        <FormField />
+      </div>
     </div>
   );
 };

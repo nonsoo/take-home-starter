@@ -1,0 +1,42 @@
+.ImgContainer {
+  width: 100%;
+  max-height: 200px;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.ImgContainer_Title {
+  position: absolute;
+  margin-left: 0.55em;
+  margin-top: 0.45em;
+
+  font-size: var(--fs-tri);
+  font-weight: var(--fw-tri);
+
+  color: var(--col-text-sec);
+}
+
+.imgBackground {
+  width: 100%;
+}
+
+.formContainer {
+  flex: 1;
+
+  padding: 1.25em;
+
+  /* max-width: 500px; */
+}
+
+@media screen and (min-width: 800px) {
+  .ImgContainer {
+    min-height: 100vh;
+    max-width: 50vw;
+  }
+
+  .imgBackground {
+    min-height: 100vh;
+  }
+}
