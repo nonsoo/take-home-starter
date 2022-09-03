@@ -7,7 +7,7 @@ import "./css/reviewForm.css";
 
 import backGround from "./imgs/background.jpg";
 
-import FormField from "./components/Formfield";
+// import FormField from "./components/Formfield";
 import ReviewSection from "./components/ReviewForm";
 
 const App: FC = () => {

@@ -2,7 +2,11 @@ import { FC, useState } from "react";
 
 import { userInfo } from "../types/projectTypes";
 
+import { useAppDispatch } from "../../redux/hooks";
+import { increaseCurrPage } from "../../redux/slices/page";
+
 const FormField: FC = () => {
+  const dispatch = useAppDispatch();
   const [userInfo, setUserInfo] = useState<userInfo>({
     fName: "",
     lName: "",
@@ -11,6 +15,7 @@ const FormField: FC = () => {
   });
   const onSubmit = (e: any) => {
     e.preventDefault();
+    dispatch(increaseCurrPage);
   };
 
   return (
