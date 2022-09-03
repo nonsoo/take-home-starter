@@ -7,10 +7,13 @@ import "./css/reviewForm.css";
 
 import backGround from "./imgs/background.jpg";
 
-// import FormField from "./components/Formfield";
+import FormField from "./components/Formfield";
 import ReviewSection from "./components/ReviewForm";
 
+import { useAppSelector } from "../redux/hooks";
+
 const App: FC = () => {
+  const currPage = useAppSelector((state) => state.page.currPage);
   return (
     <div className="App">
       <div className="ImgContainer">
@@ -22,8 +25,8 @@ const App: FC = () => {
         />
       </div>
       <div className="formContainer">
-        {/* <FormField /> */}
-        <ReviewSection />
+        {currPage === 1 && <FormField />}
+        {currPage === 2 && <ReviewSection />}
       </div>
     </div>
   );

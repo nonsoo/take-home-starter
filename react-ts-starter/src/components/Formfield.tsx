@@ -7,6 +7,7 @@ import { increaseCurrPage } from "../../redux/slices/page";
 
 const FormField: FC = () => {
   const dispatch = useAppDispatch();
+
   const [userInfo, setUserInfo] = useState<userInfo>({
     fName: "",
     lName: "",
