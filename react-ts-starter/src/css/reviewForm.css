@@ -4,3 +4,20 @@
 
   margin-bottom: 1.25em;
 }
+
+.reviewSection {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1em;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+}
+
+.reviewItem__Label {
+  font-weight: var(--fw-tri);
+}
