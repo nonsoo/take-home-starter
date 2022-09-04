@@ -28,6 +28,11 @@ const FormField: FC = () => {
       setUserInfo({ ...currUser });
     }
   }, []);
+
+  const onSkip = () => {
+    saveUserStateToLocalStorage({ ...userInfo });
+    dispatch(increaseCurrPage());
+  };
   const onSubmit = (e: any) => {
     e.preventDefault();
     dispatch(increaseCurrPage());
@@ -104,7 +109,14 @@ const FormField: FC = () => {
             required
           />
         </div>
-        <Btn btnName="Continue" />
+        <div className="BtnsContainer">
+          <Btn
+            btnName="Skip"
+            exCSS="btnContainer_SkipBtn"
+            onToggle={() => onSkip()}
+          />
+          <input type="submit" value="Continue" className="btn" />
+        </div>
       </form>
     </section>
   );

@@ -37,9 +37,29 @@
   gap: 1.25em;
 }
 
+.BtnsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.BtnsContainer > .btnContainer_SkipBtn {
+  order: 1;
+  background-color: var(--col-acc-prmy);
+}
+
 @media screen and (min-width: 800px) {
   .userInfo__Name {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .BtnsContainer {
+    flex-direction: row;
+  }
+
+  .BtnsContainer > .btnContainer_SkipBtn {
+    order: 0;
   }
 }
