@@ -1,9 +1,13 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 
 import { userInfo } from "../utils/types/projectTypes";
 
 import { useAppDispatch } from "../redux/hooks";
 import { increaseCurrPage } from "../redux/slices/page";
+import {
+  saveUserStateToLocalStorage,
+  loadUserStateFromLocalStorage,
+} from "../utils/helper/saveData";
 
 import Btn from "./btn";
 
@@ -16,9 +20,18 @@ const FormField: FC = () => {
     phone: "",
     email: "",
   });
+
+  useEffect(() => {
+    const currUser = loadUserStateFromLocalStorage();
+
+    if (currUser) {
+      setUserInfo({ ...currUser });
+    }
+  }, []);
   const onSubmit = (e: any) => {
     e.preventDefault();
     dispatch(increaseCurrPage());
+    saveUserStateToLocalStorage({ ...userInfo });
   };
 
   return (
