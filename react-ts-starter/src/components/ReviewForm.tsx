@@ -1,11 +1,12 @@
 import { FC } from "react";
+import Btn from "./btn";
 
 const ReviewForm: FC = () => {
   return (
     <section className="reviewSection mainContain">
       <p className="reviewSection__Title">
-        Love to hear from you, <br />
-        Get in touch!
+        Review your details <br />
+        before you submit
       </p>
 
       <div className="reviewItem">
@@ -24,6 +25,7 @@ const ReviewForm: FC = () => {
         <p className="reviewItem__Label">Email Address</p>
         <p className="reviewItem__item">jR@gmail.com</p>
       </div>
+      <Btn btnName="Send" />
     </section>
   );
 };

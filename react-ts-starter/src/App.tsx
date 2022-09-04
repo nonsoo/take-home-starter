@@ -4,6 +4,7 @@ import "./css/layout.css";
 import "./css/home.css";
 import "./css/formComp.css";
 import "./css/reviewForm.css";
+import "./css/genericComponents.css";
 
 import backGround from "./imgs/background.jpg";
 

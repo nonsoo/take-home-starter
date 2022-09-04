@@ -1,9 +1,11 @@
 import { FC, useState } from "react";
 
-import { userInfo } from "../types/projectTypes";
+import { userInfo } from "../utils/types/projectTypes";
 
 import { useAppDispatch } from "../redux/hooks";
 import { increaseCurrPage } from "../redux/slices/page";
+
+import Btn from "./btn";
 
 const FormField: FC = () => {
   const dispatch = useAppDispatch();
@@ -89,7 +91,7 @@ const FormField: FC = () => {
             required
           />
         </div>
-        <button className="userInfo__submit">Continue</button>
+        <Btn btnName="Continue" />
       </form>
     </section>
   );
