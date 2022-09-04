@@ -10,7 +10,7 @@ import backGround from "./imgs/background.jpg";
 import FormField from "./components/Formfield";
 import ReviewSection from "./components/ReviewForm";
 
-import { useAppSelector } from "../redux/hooks";
+import { useAppSelector } from "./redux/hooks";
 
 const App: FC = () => {
   const currPage = useAppSelector((state) => state.page.currPage);
