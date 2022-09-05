@@ -13,6 +13,11 @@
   align-self: flex-end;
 }
 
+.btn:disabled {
+  background: hsla(4, 94%, 74%, 0.8);
+  cursor: not-allowed;
+}
+
 @media screen and (min-width: 800px) {
   .btn {
     width: inherit;

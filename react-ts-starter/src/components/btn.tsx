@@ -7,7 +7,7 @@ interface Props {
 }
 const Btn: FC<Props> = ({ btnName, exCSS, onToggle }) => {
   return (
-    <button className={`btn ${exCSS}`} onClick={onToggle}>
+    <button className={`btn ${exCSS}`} onClick={onToggle} disabled={false}>
       {btnName}
     </button>
   );

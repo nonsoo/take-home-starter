@@ -13,9 +13,22 @@ import Btn from "./btn";
 
 const ReviewForm: FC = () => {
   const dispatch = useAppDispatch();
-  const [savedData, setSavedData] = useState<userInfo | null>();
+  const [savedData, setSavedData] = useState<userInfo | null>(null);
+  const [disableBtn, setDisableBtn] = useState<boolean>(false);
   useEffect(() => {
-    setSavedData(loadUserStateFromLocalStorage());
+    const userData = loadUserStateFromLocalStorage();
+    if (userData) {
+      setSavedData(userData);
+
+      if (
+        userData.fName === "" ||
+        userData.lName === "" ||
+        userData.email === "" ||
+        userData.phone === ""
+      ) {
+        setDisableBtn(true);
+      }
+    }
   }, []);
 
   const onReset = () => {
@@ -25,10 +38,9 @@ const ReviewForm: FC = () => {
   return (
     <section className="reviewSection mainContain">
       <p className="reviewSection__Title">
-        Review your details <br />
-        before you submit
+        Let's review your <br />
+        information
       </p>
-
       <div className="reviewItem">
         <p className="reviewItem__Label">First Name</p>
         <p className="reviewItem__item">{savedData?.fName}</p>
@@ -45,8 +57,12 @@ const ReviewForm: FC = () => {
         <p className="reviewItem__Label">Email Address</p>
         <p className="reviewItem__item">{savedData?.email}</p>
       </div>
-      <Btn btnName="Send" />
-      <Btn btnName="Reset" onToggle={() => onReset()} />
+      <div className="BtnsContainer">
+        <Btn btnName="Reset" onToggle={() => onReset()} />
+        <button className="btn" disabled={disableBtn}>
+          Submit
+        </button>
+      </div>
     </section>
   );
 };

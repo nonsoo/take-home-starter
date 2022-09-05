@@ -44,7 +44,7 @@
   gap: 1em;
 }
 
-.BtnsContainer > .btnContainer_SkipBtn {
+.BtnsContainer > .btn:first-child {
   order: 1;
   background-color: var(--col-acc-prmy);
 }
@@ -59,7 +59,7 @@
     flex-direction: row;
   }
 
-  .BtnsContainer > .btnContainer_SkipBtn {
+  .BtnsContainer > .btn:first-child {
     order: 0;
   }
 }
