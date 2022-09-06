@@ -7,6 +7,7 @@ import "./css/reviewForm.css";
 import "./css/genericComponents.css";
 import "./css/submittedForm.css";
 import "./css/pokemonForm.css";
+import "./css/previewPokemon.css";
 
 import backGround from "./imgs/background.jpg";
 

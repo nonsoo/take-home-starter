@@ -1,16 +1,33 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Btn from "./btn";
 import { MdArrowRightAlt } from "react-icons/md";
 
+import PreviewPokemon from "./previewPokemon";
+
 const Pickpokemon: FC = () => {
+  const pokemon = {
+    name: "Bulbasaur",
+    types: ["Grass", "Posion"],
+  };
+
+  const [searchTerm, setSearchTerm] = useState<string>("");
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    if (searchTerm === "") return;
+  };
   return (
     <section className="pokemonSection mainContain">
       <p className="pokemonSection__Title">Who's that Pokémon?</p>
       <form className="pokemonSearch">
         <p className="sectionSubHeader">Search pokédex by pokémon</p>
         <div className="pokemonSearch__Box">
-          <input type="text" className="pokemonSeearch__Text" />
-          <button className="pokemonSearch__Btn">
+          <input
+            type="text"
+            className="pokemonSeearch__Text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="pokemonSearch__Btn" onClick={(e) => onSubmit(e)}>
             <MdArrowRightAlt />
           </button>
         </div>
@@ -24,6 +41,7 @@ const Pickpokemon: FC = () => {
           <p className="searchType__Text">Electric</p>
         </div>
       </div>
+      <PreviewPokemon name={pokemon.name} types={pokemon.types} />
       <Btn btnName="Continue" />
     </section>
   );

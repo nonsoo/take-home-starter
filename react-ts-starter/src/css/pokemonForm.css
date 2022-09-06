@@ -22,9 +22,9 @@
   width: 100%;
   gap: 1em;
   border: 1px solid #b9b9b9;
-  background-color: #fff;
+  background-color: var(--col-background-sec);
 
-  padding: 0.25em 1em;
+  padding: 0.25em 1em 0.25em 0;
   border-radius: 5px;
 }
 
@@ -32,6 +32,7 @@
   flex: 1;
   border: none;
   height: 50px;
+  padding: 0 0.5em;
 }
 
 .pokemonSearch__Btn {

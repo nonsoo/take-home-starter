@@ -1,0 +1,26 @@
+.previewPokemon {
+  padding: 1em;
+  border-radius: 10px;
+  background-color: hsl(163, 54%, 54%);
+}
+
+.previewPokemon__Name {
+  font-size: var(--fs-sec);
+  font-weight: var(--fw-sec);
+  color: var(--col-text-sec);
+
+  margin-bottom: 0.25em;
+}
+
+.previewPokemon__TypeGroup {
+  display: flex;
+  gap: 1.25em;
+}
+
+.previewPokemon__Type {
+  border-radius: 15px;
+  color: var(--col-text-sec);
+  background-color: hsl(163, 59%, 36%);
+  text-align: center;
+  padding: 0.25em 1em;
+}
