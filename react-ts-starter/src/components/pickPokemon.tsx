@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Btn from "./btn";
+import { MdArrowRightAlt } from "react-icons/md";
 
 const Pickpokemon: FC = () => {
   return (
@@ -9,7 +10,9 @@ const Pickpokemon: FC = () => {
         <p className="sectionSubHeader">Search pokédex by pokémon</p>
         <div className="pokemonSearch__Box">
           <input type="text" className="pokemonSeearch__Text" />
-          <button className="pokemonSearch__Btn">g</button>
+          <button className="pokemonSearch__Btn">
+            <MdArrowRightAlt />
+          </button>
         </div>
       </form>
       <div className="searchType">
