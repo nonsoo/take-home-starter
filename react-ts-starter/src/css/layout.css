@@ -26,7 +26,6 @@ select {
 :root {
   /* FONTS */
   --ff-prmy: "Open Sans", sans-serif;
-  --ff-sec: "Lato", sans-serif;
 
   --fs-prmy: 1rem;
   --fs-sec: 1.1rem;

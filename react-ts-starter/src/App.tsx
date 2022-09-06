@@ -6,12 +6,14 @@ import "./css/formComp.css";
 import "./css/reviewForm.css";
 import "./css/genericComponents.css";
 import "./css/submittedForm.css";
+import "./css/pokemonForm.css";
 
 import backGround from "./imgs/background.jpg";
 
 import FormField from "./components/Formfield";
 import ReviewSection from "./components/ReviewForm";
 import CompletedStatus from "./components/submitted";
+import PickPokemon from "./components/pickPokemon";
 
 import { useAppSelector, useAppDispatch } from "./redux/hooks";
 import { setCurrPage } from "./redux/slices/page";
@@ -28,7 +30,7 @@ const App: FC = () => {
   return (
     <div className="App">
       <section className="ImgContainer">
-        <p className="ImgContainer_Title">Matted</p>
+        <p className="ImgContainer_Title">PokéForms</p>
         <img
           src={backGround}
           alt="This is the background imgs"
@@ -40,7 +42,8 @@ const App: FC = () => {
       ) : (
         <section className="formContainer">
           {currPage === 1 && <FormField />}
-          {currPage === 2 && <ReviewSection />}
+          {currPage === 2 && <PickPokemon />}
+          {currPage === 3 && <ReviewSection />}
           <section className="pageSelector">
             {pageLst.map((page) => (
               <div
