@@ -11,24 +11,42 @@ import backGround from "./imgs/background.jpg";
 import FormField from "./components/Formfield";
 import ReviewSection from "./components/ReviewForm";
 
-import { useAppSelector } from "./redux/hooks";
+import { useAppSelector, useAppDispatch } from "./redux/hooks";
+import { setCurrPage } from "./redux/slices/page";
 
 const App: FC = () => {
   const currPage = useAppSelector((state) => state.page.currPage);
+  const dispatch = useAppDispatch();
+  const pageLst: number[] = [1, 2, 3];
+
+  const goToPage = (pageNumber: number) => {
+    dispatch(setCurrPage(pageNumber));
+  };
   return (
     <div className="App">
-      <div className="ImgContainer">
+      <section className="ImgContainer">
         <p className="ImgContainer_Title">Matted</p>
         <img
           src={backGround}
           alt="This is the background imgs"
           className="imgBackground"
         />
-      </div>
-      <div className="formContainer">
+      </section>
+      <section className="formContainer">
         {currPage === 1 && <FormField />}
         {currPage === 2 && <ReviewSection />}
-      </div>
+        <section className="pageSelector">
+          {pageLst.map((page) => (
+            <div
+              className="pageSelector__selector"
+              key={page}
+              onClick={() => goToPage(page)}
+            >
+              {page}
+            </div>
+          ))}
+        </section>
+      </section>
     </div>
   );
 };

@@ -29,6 +29,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.pageSelector {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  margin-top: 2em;
+}
+
+.pageSelector__selector {
+  font-size: 1rem;
+  padding: 0.55em 3em;
+  background-color: var(--col-acc-prmy);
+  color: var(--col-text-sec);
+
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {
@@ -43,5 +62,9 @@
 
   .formContainer {
     padding: 2em;
+  }
+
+  .pageSelector {
+    flex-direction: row;
   }
 }
