@@ -42,6 +42,10 @@ const Pickpokemon: FC = () => {
     dispatch(increaseCurrPage());
   };
 
+  const onSkip = () => {
+    dispatch(increaseCurrPage());
+  };
+
   return (
     <section className="pokemonSection mainContain">
       <p className="pokemonSection__Title">Who's that Pokémon?</p>
@@ -68,7 +72,6 @@ const Pickpokemon: FC = () => {
           <p className="searchType__Text">Electric</p>
         </div>
       </div>
-
       {pokemons && (
         <PreviewPokemon
           name={pokemons.name}
@@ -76,8 +79,14 @@ const Pickpokemon: FC = () => {
           imgUrl={pokemons.imgUrl}
         />
       )}
-
-      <Btn btnName="Continue" onToggle={() => onContinue()} />
+      <div className="BtnsContainer">
+        <Btn
+          btnName="Skip"
+          exCSS="btnContainer_SkipBtn"
+          onToggle={() => onSkip()}
+        />
+        <Btn btnName="Continue" onToggle={() => onContinue()} />
+      </div>
     </section>
   );
 };
