@@ -6,7 +6,7 @@ interface Props {
   imgUrl?: string;
 }
 
-const PreviewPokemon: FC<Props> = ({ name, types }) => {
+const PreviewPokemon: FC<Props> = ({ name, types, imgUrl }) => {
   return (
     <section className="previewPokemon">
       <p className="previewPokemon__Name">{name}</p>
@@ -17,7 +17,7 @@ const PreviewPokemon: FC<Props> = ({ name, types }) => {
           </p>
         ))}
       </div>
-      <div className="previewPokemon_img"></div>
+      <img src={imgUrl} alt={name} className="previewPokemon_img" />
     </section>
   );
 };

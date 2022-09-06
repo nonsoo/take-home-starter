@@ -4,17 +4,26 @@ import { MdArrowRightAlt } from "react-icons/md";
 
 import PreviewPokemon from "./previewPokemon";
 
-const Pickpokemon: FC = () => {
-  const pokemon = {
-    name: "Bulbasaur",
-    types: ["Grass", "Posion"],
-  };
+// import FetchPokemon from "../utils/helper/fetchPokemon";
 
+import axios from "axios";
+
+import convertToTypesArray from "../utils/helper/convertToTypesArray";
+
+const Pickpokemon: FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [pokemons, setPokemons] = useState<any>(null);
   const onSubmit = (e: any) => {
     e.preventDefault();
     if (searchTerm === "") return;
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}/`)
+      .then((res) => setPokemons(res.data))
+      .catch((e) => console.log(e));
   };
+
+  const typeFromPokemon = convertToTypesArray(pokemons.types);
+
   return (
     <section className="pokemonSection mainContain">
       <p className="pokemonSection__Title">Who's that Pokémon?</p>
@@ -41,7 +50,15 @@ const Pickpokemon: FC = () => {
           <p className="searchType__Text">Electric</p>
         </div>
       </div>
-      <PreviewPokemon name={pokemon.name} types={pokemon.types} />
+
+      {pokemons && (
+        <PreviewPokemon
+          name={pokemons.name}
+          types={typeFromPokemon}
+          imgUrl={pokemons.sprites.front_default}
+        />
+      )}
+
       <Btn btnName="Continue" />
     </section>
   );

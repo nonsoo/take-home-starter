@@ -4,3 +4,7 @@ export interface userInfo {
   phone: string;
   email: string;
 }
+
+export interface resData<T> {
+  data: T;
+}

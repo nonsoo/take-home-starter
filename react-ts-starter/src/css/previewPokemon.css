@@ -6,8 +6,10 @@
 
 .previewPokemon__Name {
   font-size: var(--fs-sec);
-  font-weight: var(--fw-sec);
+  font-weight: var(--fw-tri);
   color: var(--col-text-sec);
+
+  text-transform: capitalize;
 
   margin-bottom: 0.25em;
 }
@@ -23,4 +25,9 @@
   background-color: hsl(163, 59%, 36%);
   text-align: center;
   padding: 0.25em 1em;
+}
+
+.previewPokemon_img {
+  margin: 0 auto;
+  width: 40%;
 }
