@@ -1,9 +1,12 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import axios from "axios";
 
 import { Pokemon } from "../utils/types/projectTypes";
 import convertToTypesArray from "../utils/helper/convertToTypesArray";
-import { savePokeStateToLocalStorage } from "../utils/helper/saveData";
+import {
+  savePokeStateToLocalStorage,
+  loadPokeStateFromLocalStorage,
+} from "../utils/helper/saveData";
 
 import { useAppDispatch } from "../redux/hooks";
 import { increaseCurrPage } from "../redux/slices/page";
@@ -17,6 +20,14 @@ const Pickpokemon: FC = () => {
   const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [pokemons, setPokemons] = useState<Pokemon | null>(null);
+
+  useEffect(() => {
+    const savedData = loadPokeStateFromLocalStorage();
+
+    if (savedData) {
+      setPokemons(savedData);
+    }
+  }, []);
 
   const onSubmit = (e: any) => {
     e.preventDefault();

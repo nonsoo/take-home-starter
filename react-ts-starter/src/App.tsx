@@ -23,7 +23,7 @@ const App: FC = () => {
   const currPage = useAppSelector((state) => state.page.currPage);
   const formCompleted = useAppSelector((state) => state.form.isFormSubmitted);
   const dispatch = useAppDispatch();
-  const pageLst: number[] = [1, 2, 3];
+  const pageLst: number[] = [1, 2];
 
   const goToPage = (pageNumber: number) => {
     dispatch(setCurrPage(pageNumber));
