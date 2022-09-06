@@ -1,16 +1,18 @@
 import { FC } from "react";
-import { IoCheckmarkCircleSharp } from "react-icons/io5";
+
+import { removeUserStateFromLocalStorage } from "../utils/helper/saveData";
 
 import { useAppDispatch } from "../redux/hooks";
 import { setCurrPage } from "../redux/slices/page";
 import { resetForm } from "../redux/slices/submitForm";
 
-import { removeUserStateFromLocalStorage } from "../utils/helper/saveData";
-
 import Btn from "./btn";
+
+import { IoCheckmarkCircleSharp } from "react-icons/io5";
 
 const Submitted: FC = () => {
   const dispatch = useAppDispatch();
+
   const onResetForm = () => {
     removeUserStateFromLocalStorage();
     dispatch(setCurrPage(1));

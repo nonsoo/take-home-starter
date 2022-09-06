@@ -1,28 +1,46 @@
 import { FC, useState } from "react";
-import Btn from "./btn";
-import { MdArrowRightAlt } from "react-icons/md";
-
-import PreviewPokemon from "./previewPokemon";
-
-// import FetchPokemon from "../utils/helper/fetchPokemon";
-
 import axios from "axios";
 
+import { Pokemon } from "../utils/types/projectTypes";
 import convertToTypesArray from "../utils/helper/convertToTypesArray";
+import { savePokeStateToLocalStorage } from "../utils/helper/saveData";
+
+import { useAppDispatch } from "../redux/hooks";
+import { increaseCurrPage } from "../redux/slices/page";
+
+import PreviewPokemon from "./previewPokemon";
+import Btn from "./btn";
+
+import { MdArrowRightAlt } from "react-icons/md";
 
 const Pickpokemon: FC = () => {
+  const dispatch = useAppDispatch();
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [pokemons, setPokemons] = useState<any>(null);
+  const [pokemons, setPokemons] = useState<Pokemon | null>(null);
+
   const onSubmit = (e: any) => {
     e.preventDefault();
     if (searchTerm === "") return;
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${searchTerm.toLowerCase()}/`)
-      .then((res) => setPokemons(res.data))
+      .then((res) => {
+        const data: Pokemon = {
+          name: res.data.name,
+          types: convertToTypesArray(res.data.types),
+          imgUrl: res.data.sprites.front_default,
+        };
+
+        setPokemons(data);
+      })
       .catch((e) => console.log(e));
   };
 
-  const typeFromPokemon = convertToTypesArray(pokemons.types);
+  const onContinue = () => {
+    if (!pokemons) return;
+
+    savePokeStateToLocalStorage(pokemons);
+    dispatch(increaseCurrPage());
+  };
 
   return (
     <section className="pokemonSection mainContain">
@@ -54,12 +72,12 @@ const Pickpokemon: FC = () => {
       {pokemons && (
         <PreviewPokemon
           name={pokemons.name}
-          types={typeFromPokemon}
-          imgUrl={pokemons.sprites.front_default}
+          types={pokemons.types}
+          imgUrl={pokemons.imgUrl}
         />
       )}
 
-      <Btn btnName="Continue" />
+      <Btn btnName="Continue" onToggle={() => onContinue()} />
     </section>
   );
 };

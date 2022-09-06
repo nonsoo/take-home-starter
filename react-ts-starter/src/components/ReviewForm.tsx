@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from "react";
 
-import { userInfo } from "../utils/types/projectTypes";
+import { userInfo, Pokemon } from "../utils/types/projectTypes";
 import {
   loadUserStateFromLocalStorage,
   removeUserStateFromLocalStorage,
+  loadPokeStateFromLocalStorage,
 } from "../utils/helper/saveData";
 
 import { useAppDispatch } from "../redux/hooks";
@@ -11,21 +12,26 @@ import { setCurrPage } from "../redux/slices/page";
 import { submitForm } from "../redux/slices/submitForm";
 
 import Btn from "./btn";
+import PreviewPokemon from "./previewPokemon";
 
 const ReviewForm: FC = () => {
   const dispatch = useAppDispatch();
   const [savedData, setSavedData] = useState<userInfo | null>(null);
+  const [savedPokemon, setSavedPokemon] = useState<Pokemon | null>(null);
   const [disableBtn, setDisableBtn] = useState<boolean>(false);
   useEffect(() => {
     const userData = loadUserStateFromLocalStorage();
+    const pokeData = loadPokeStateFromLocalStorage();
     if (userData) {
       setSavedData(userData);
+      setSavedPokemon(pokeData);
 
       if (
-        userData.fName === "" ||
+        userData?.fName === "" ||
         userData.lName === "" ||
         userData.email === "" ||
-        userData.phone === ""
+        userData.phone === "" ||
+        pokeData === null
       ) {
         setDisableBtn(true);
       }
@@ -62,6 +68,15 @@ const ReviewForm: FC = () => {
         <p className="reviewItem__Label">Email Address</p>
         <p className="reviewItem__item">{savedData?.email}</p>
       </div>
+
+      {savedPokemon && (
+        <PreviewPokemon
+          name={savedPokemon.name}
+          types={savedPokemon.types}
+          imgUrl={savedPokemon.imgUrl}
+        />
+      )}
+
       <div className="BtnsContainer">
         <Btn btnName="Reset" onToggle={() => onReset()} />
         <button

@@ -1,13 +1,13 @@
 import { FC, useState, useEffect } from "react";
 
 import { userInfo } from "../utils/types/projectTypes";
-
-import { useAppDispatch } from "../redux/hooks";
-import { increaseCurrPage } from "../redux/slices/page";
 import {
   saveUserStateToLocalStorage,
   loadUserStateFromLocalStorage,
 } from "../utils/helper/saveData";
+
+import { useAppDispatch } from "../redux/hooks";
+import { increaseCurrPage } from "../redux/slices/page";
 
 import Btn from "./btn";
 

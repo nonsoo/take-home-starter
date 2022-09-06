@@ -5,6 +5,8 @@ export interface userInfo {
   email: string;
 }
 
-export interface resData<T> {
-  data: T;
+export interface Pokemon {
+  name: string;
+  types: string[];
+  imgUrl: string;
 }

@@ -1,12 +1,7 @@
 import { FC } from "react";
 
-interface Props {
-  name: string;
-  types: string[];
-  imgUrl?: string;
-}
-
-const PreviewPokemon: FC<Props> = ({ name, types, imgUrl }) => {
+import { Pokemon } from "../utils/types/projectTypes";
+const PreviewPokemon: FC<Pokemon> = ({ name, types, imgUrl }) => {
   return (
     <section className="previewPokemon">
       <p className="previewPokemon__Name">{name}</p>
