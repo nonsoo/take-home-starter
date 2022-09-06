@@ -44,18 +44,21 @@ const App: FC = () => {
         <section className="formContainer">
           {currPage === 1 && <FormField />}
           {currPage === 2 && <PickPokemon />}
-          {currPage === 3 && <ReviewSection />}
-          <section className="pageSelector">
-            {pageLst.map((page) => (
-              <div
-                className="pageSelector__selector"
-                key={page}
-                onClick={() => goToPage(page)}
-              >
-                {page}
-              </div>
-            ))}
-          </section>
+          {currPage === 3 && (
+            <ReviewSection>
+              <section className="pageSelector">
+                {pageLst.map((page) => (
+                  <div
+                    className="pageSelector__selector"
+                    key={page}
+                    onClick={() => goToPage(page)}
+                  >
+                    {page}
+                  </div>
+                ))}
+              </section>
+            </ReviewSection>
+          )}
         </section>
       )}
     </div>
