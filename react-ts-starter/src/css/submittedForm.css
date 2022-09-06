@@ -1,0 +1,32 @@
+.submittedForm {
+  flex: 1;
+  padding: 1.25em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.submittedForm__Icon {
+  font-size: 6rem;
+  color: var(--col-acc-prmy);
+}
+
+.submittedForm__text {
+  font-size: var(--fs-sec);
+  font-weight: var(--fw-sec);
+
+  text-align: center;
+}
+
+.submittedForm__Btn {
+  align-self: center;
+}
+
+@media screen and (min-width: 800px) {
+  .submittedForm {
+    padding: 2em;
+  }
+}

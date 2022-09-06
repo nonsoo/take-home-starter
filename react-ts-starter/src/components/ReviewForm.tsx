@@ -8,6 +8,7 @@ import {
 
 import { useAppDispatch } from "../redux/hooks";
 import { setCurrPage } from "../redux/slices/page";
+import { submitForm } from "../redux/slices/submitForm";
 
 import Btn from "./btn";
 
@@ -35,6 +36,10 @@ const ReviewForm: FC = () => {
     removeUserStateFromLocalStorage();
     dispatch(setCurrPage(1));
   };
+
+  const onSubmit = () => {
+    dispatch(submitForm());
+  };
   return (
     <section className="reviewSection mainContain">
       <p className="reviewSection__Title">
@@ -59,7 +64,11 @@ const ReviewForm: FC = () => {
       </div>
       <div className="BtnsContainer">
         <Btn btnName="Reset" onToggle={() => onReset()} />
-        <button className="btn" disabled={disableBtn}>
+        <button
+          className="btn"
+          disabled={disableBtn}
+          onClick={() => onSubmit()}
+        >
           Submit
         </button>
       </div>
