@@ -10,6 +10,7 @@ import {
 
 import { useAppDispatch } from "../redux/hooks";
 import { increaseCurrPage } from "../redux/slices/page";
+import { pageTwoComplete } from "../redux/slices/submitForm";
 
 import PreviewPokemon from "./previewPokemon";
 import Btn from "./btn";
@@ -51,6 +52,7 @@ const Pickpokemon: FC = () => {
 
     savePokeStateToLocalStorage(pokemons);
     dispatch(increaseCurrPage());
+    dispatch(pageTwoComplete());
   };
 
   const onSkip = () => {

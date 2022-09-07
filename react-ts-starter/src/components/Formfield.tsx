@@ -8,6 +8,7 @@ import {
 
 import { useAppDispatch } from "../redux/hooks";
 import { increaseCurrPage } from "../redux/slices/page";
+import { pageOneComplete } from "../redux/slices/submitForm";
 
 import Btn from "./btn";
 
@@ -36,6 +37,7 @@ const FormField: FC = () => {
   const onSubmit = (e: any) => {
     e.preventDefault();
     dispatch(increaseCurrPage());
+    dispatch(pageOneComplete());
     saveUserStateToLocalStorage({ ...userInfo });
   };
 

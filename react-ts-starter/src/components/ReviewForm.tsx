@@ -1,6 +1,5 @@
 import { FC, useEffect, useState, ReactNode } from "react";
 
-import { userInfo, Pokemon } from "../utils/types/projectTypes";
 import {
   loadUserStateFromLocalStorage,
   removeUserStateFromLocalStorage,
@@ -9,7 +8,8 @@ import {
 
 import { useAppDispatch } from "../redux/hooks";
 import { setCurrPage } from "../redux/slices/page";
-import { submitForm } from "../redux/slices/submitForm";
+import { submitForm, resetForm } from "../redux/slices/submitForm";
+import { useAppSelector } from "../redux/hooks";
 
 import Btn from "./btn";
 import PreviewPokemon from "./previewPokemon";
@@ -20,31 +20,24 @@ interface Props {
 
 const ReviewForm: FC<Props> = ({ children }) => {
   const dispatch = useAppDispatch();
-  const [savedData, setSavedData] = useState<userInfo | null>(null);
-  const [savedPokemon, setSavedPokemon] = useState<Pokemon | null>(null);
   const [disableBtn, setDisableBtn] = useState<boolean>(false);
-  useEffect(() => {
-    const userData = loadUserStateFromLocalStorage();
-    const pokeData = loadPokeStateFromLocalStorage();
-    if (userData) {
-      setSavedData(userData);
-      setSavedPokemon(pokeData);
 
-      if (
-        userData?.fName === "" ||
-        userData.lName === "" ||
-        userData.email === "" ||
-        userData.phone === "" ||
-        pokeData === null
-      ) {
-        setDisableBtn(true);
-      }
+  const savedData = loadUserStateFromLocalStorage();
+  const savedPokemon = loadPokeStateFromLocalStorage();
+
+  const statusOne = useAppSelector((state) => state.form.pages.oneComplete);
+  const statusTwo = useAppSelector((state) => state.form.pages.twoComplete);
+
+  useEffect(() => {
+    if (!statusOne || !statusTwo) {
+      setDisableBtn(true);
     }
-  }, []);
+  }, [statusOne, statusTwo]);
 
   const onReset = () => {
     removeUserStateFromLocalStorage();
     dispatch(setCurrPage(1));
+    dispatch(resetForm());
   };
 
   const onSubmit = () => {
