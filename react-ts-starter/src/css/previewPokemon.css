@@ -31,3 +31,29 @@
   margin: 0 auto;
   width: 40%;
 }
+
+.pokemonTypeLstCon {
+  height: 200px;
+  overflow-y: scroll;
+
+  margin: 1em 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+}
+
+.pokemonTypeLst {
+  background-color: var(--col-acc-prmy);
+  color: var(--col-text-sec);
+
+  padding: 1em;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.pokemonTypeLst__Text {
+  margin-left: 1em;
+  text-transform: capitalize;
+}

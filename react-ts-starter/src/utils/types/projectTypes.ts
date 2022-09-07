@@ -10,3 +10,11 @@ export interface Pokemon {
   types: string[];
   imgUrl: string;
 }
+
+export interface PokemonType {
+  pokemon: {
+    name: string;
+    url: string;
+  };
+  slot: number;
+}
