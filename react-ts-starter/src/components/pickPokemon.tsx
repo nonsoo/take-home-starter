@@ -25,6 +25,9 @@ const Pickpokemon: FC = () => {
   const [pokemonTypeLst, setPokemonTypeLst] = useState<PokemonType[] | null>(
     null
   );
+  const [invalidInput, setInvalidInput] = useState<boolean>(false);
+
+  console.log(invalidInput);
 
   useEffect(() => {
     const savedData = loadPokeStateFromLocalStorage();
@@ -48,7 +51,14 @@ const Pickpokemon: FC = () => {
 
         setPokemons(data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        setSearchTerm("");
+        setInvalidInput(true);
+        setTimeout(() => {
+          setInvalidInput(false);
+        }, 700);
+        console.error(err);
+      });
   };
 
   const getPokemonByType = (path: string) => {
@@ -94,7 +104,11 @@ const Pickpokemon: FC = () => {
       <p className="pokemonSection__Title">Who's that Pokémon?</p>
       <form className="pokemonSearch">
         <p className="sectionSubHeader">Search pokédex by pokémon</p>
-        <div className="pokemonSearch__Box">
+        <div
+          className={`pokemonSearch__Box ${
+            invalidInput ? "ShakeAnimation" : ""
+          } `}
+        >
           <input
             type="text"
             className="pokemonSeearch__Text"
