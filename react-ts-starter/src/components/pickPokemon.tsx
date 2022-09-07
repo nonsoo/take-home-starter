@@ -150,10 +150,11 @@ const Pickpokemon: FC = () => {
 
       <div className="pokemonTypeLstCon">
         {pokemonTypeLst &&
-          pokemonTypeLst.map((pokemon) => (
+          pokemonTypeLst.map((pokemon, index) => (
             <div
               className="pokemonTypeLst"
               onClick={() => onSearchPokemonByType(pokemon)}
+              key={index}
             >
               <CgPokemon />
               <span className="pokemonTypeLst__Text">
