@@ -53,7 +53,7 @@ const App: FC = () => {
                     key={page}
                     onClick={() => goToPage(page)}
                   >
-                    {page}
+                    Page {page}
                   </div>
                 ))}
               </section>
