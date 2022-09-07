@@ -27,8 +27,6 @@ const Pickpokemon: FC = () => {
   );
   const [invalidInput, setInvalidInput] = useState<boolean>(false);
 
-  console.log(invalidInput);
-
   useEffect(() => {
     const savedData = loadPokeStateFromLocalStorage();
 
