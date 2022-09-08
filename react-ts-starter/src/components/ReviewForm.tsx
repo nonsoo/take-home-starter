@@ -52,19 +52,19 @@ const ReviewForm: FC<Props> = ({ children }) => {
         </p>
         <div className="reviewItem">
           <p className="reviewItem__Label">First Name</p>
-          <p className="reviewItem__item">{savedData?.fName}</p>
+          <span className="reviewItem__item">{savedData?.fName}</span>
         </div>
         <div className="reviewItem">
           <p className="reviewItem__Label">Last Name</p>
-          <p className="reviewItem__item">{savedData?.lName}</p>
+          <span className="reviewItem__item">{savedData?.lName}</span>
         </div>
         <div className="reviewItem">
           <p className="reviewItem__Label">Phone number</p>
-          <p className="reviewItem__item">{savedData?.phone}</p>
+          <span className="reviewItem__item">{savedData?.phone}</span>
         </div>
         <div className="reviewItem">
           <p className="reviewItem__Label">Email Address</p>
-          <p className="reviewItem__item">{savedData?.email}</p>
+          <span className="reviewItem__item">{savedData?.email}</span>
         </div>
 
         {savedPokemon && (

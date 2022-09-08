@@ -14,8 +14,10 @@
 
 .reviewItem {
   display: flex;
-  flex-direction: column;
-  gap: 0.15em;
+  flex-direction: row;
+  gap: 1em;
+
+  justify-content: space-between;
 }
 
 .reviewItem__Label {
